@@ -1,0 +1,4 @@
+# Python 캐시 파일
+**/__pycache__/
+**.hypothesis
+**.pytest_cache
