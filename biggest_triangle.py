@@ -1,3 +1,5 @@
+import sys
+sys.setrecursionlimit(200000)
 def solution(grid):
 	answer = 0
 	area = 0
@@ -18,7 +20,6 @@ def solution(grid):
 			togo.remove(idx)
 		path.add(idx)
 		route.add(idx)
-		print(i,j,k, area)
 		area += 1
 		if grid[i][j] == 1:
 			direction = ['UP', 'LEFT'] if k == 1 else ['DOWN', 'RIGHT']
@@ -47,14 +48,10 @@ def solution(grid):
 
 	togo.add((0,0,1))
 	while(len(togo) != 0):
-		print("togo",togo)
-		print("route",route)
 		path = set()
 		area = 0
 		findPath(*togo.pop())
 		answer = max(answer, area)
 
-	print(answer, route)
 	return answer
 
-solution([[-1, -1, -1], [1, 1, -1], [1, 1, 1]])
